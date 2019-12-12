@@ -10,6 +10,7 @@
 unsigned char Kirim='B';
 unsigned char Terima='0';
 
+
 /* Value Sensor Variable	*/
 uint8_t SH0=0, SL0=0;
 uint8_t SH1=0, SL1=0;
@@ -17,14 +18,19 @@ uint8_t SH2=0, SL2=0;
 uint16_t SF0=0, SF1=0, SF2=0;
 
 /* Variable Calibrate 1	*/
-uint8_t TH0=0, TL0=0, TF0=0;
-uint8_t TH1=0, TL1=0, TF1=0;
-uint8_t TH2=0, TL2=0, TF2=0;
+uint8_t TH0=0, TL0=0;
+uint8_t TH1=0, TL1=0;
+uint8_t TH2=0, TL2=0;
+uint16_t TF0=0, TF1=0, TF2=0;
 
 /* variable Calibrate 2 */
 uint16_t dark0=0, dark1=0, dark2=0;
 uint16_t light0=1023, light1=1023, light2=1023;
 uint16_t Threshold0, Threshold1, Threshold2;
+
+/* variable digitalRaw	*/
+uint8_t resultDigital=0;
+uint8_t dRaw=0;
 
 void SmartSensor(void){
 	/*	---	*/
@@ -72,37 +78,37 @@ void SmartSensor(void){
 
 	/*	Send low byte threshold CH0	*/
 	case 0x07:{
-		calibrate_S0(0, &TL0, 0);
+		calibrate_S0(0, &TL0, &TF0);
 		Kirim = TL0;
 	}break;
 
 	/*	Send high byte threshold CH0	*/
 	case 0x08:{
-		calibrate_S0(&TH0, 0, 0);
+		calibrate_S0(&TH0, 0, &TF0);
 		Kirim = TH0;
 	}break;
 
 	/*	Send low byte threshold CH1	*/
 	case 0x09:{
-		calibrate_S1(0, &TL1, 0);
+		calibrate_S1(0, &TL1, &TF1);
 		Kirim = TL1;
 	}break;
 
 	/*	Send high byte threshold CH1	*/
 	case 0x0A:{
-		calibrate_S1(&TH1, 0, 0);
+		calibrate_S1(&TH1, 0, &TF1);
 		Kirim = TH1;
 	}break;
 
 	/*	Send low byte threshold CH2	*/
 	case 0x0B:{
-		calibrate_S2(0, &TL2, 0);
+		calibrate_S2(0, &TL2, &TF2);
 		Kirim = TL2;
 	}break;
 
 	/*	Send high byte threshold CH2	*/
 	case 0x0C:{
-		calibrate_S2(&TH2, 0, 0);
+		calibrate_S2(&TH2, 0, &TF2);
 		Kirim = TH2;
 	}break;
 
@@ -119,13 +125,14 @@ void SmartSensor(void){
 	}break;
 
 	/* digitalRaw	*/
-	case 0x0E:{
-
+	case 0x0F:{
+		Kirim = digitalRaw(TH2, TH1, TH0);
 	}break;
 
 	/* Decision	*/
-	case 0x0E:{
-
+	case 0x10:{
+		dRaw = digitalRaw(TH2, TH1, TH0);
+		Kirim = dicision(dRaw);
 	}break;
 	}
 }
@@ -190,14 +197,43 @@ void calibrate_S2(uint8_t *ThrsHigh, uint8_t *ThrsLow, uint16_t *ThrsFull){
 }
 
 uint8_t digitalRaw(uint16_t Thrs2, uint16_t Thrs1, uint16_t Thrs0){
-	uint8_t result;
 	/* read all sensor	*/
 	myADC_read(0, 0, 0, &SF0);
-	myADC_read(0, 0, 0, &SF1);
-	myADC_read(0, 0, 0, &SF2);
-	if(SF0 > th)
-	return result;
+	myADC_read(1, 0, 0, &SF1);
+	myADC_read(2, 0, 0, &SF2);
+
+	/* Compare between SF0 and Thrs0	*/
+	if(SF0 > 500)
+		resultDigital |= (1<<0);
+	else
+		resultDigital &= ~(1<<0);
+
+	/* Compare between SF0 and Thrs0	*/
+	if(SF1 > 500)
+		resultDigital |= (1<<1);
+	else
+		resultDigital &= ~(1<<1);
+
+	/* Compare between SF0 and Thrs0	*/
+	if(SF2 > 500)
+		resultDigital |= (1<<2);
+	else
+		resultDigital &= ~(1<<2);
+
+	return resultDigital;
 }
 uint8_t dicision(uint8_t in_digitalRaw){
+	uint8_t result;
+	if(in_digitalRaw == 0x01)
+		result='R';
+	if(in_digitalRaw == 0x04)
+		result='L';
+	if(in_digitalRaw == 0x02)
+		result='I';
+	if(in_digitalRaw == 0x07)
+		result='+';
+	if(in_digitalRaw == 0x05)
+		result='T';
 
+	return result;
 }

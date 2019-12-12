@@ -160,7 +160,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xbea
+.text           0x0000000000000000      0xcf0
  *(.vectors)
  .vectors       0x0000000000000000       0xe4 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
                 0x0000000000000000                __vector_default
@@ -170,39 +170,39 @@ END GROUP
                 0x00000000000000e4                . = ALIGN (0x2)
                 0x00000000000000e4                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000000000000e4       0x34 linker stubs
+ .trampolines   0x00000000000000e4       0x40 linker stubs
  *(.trampolines*)
-                0x0000000000000118                __trampolines_end = .
+                0x0000000000000124                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem.*)
-                0x0000000000000118                . = ALIGN (0x2)
+                0x0000000000000124                . = ALIGN (0x2)
  *(.lowtext)
  *(.lowtext*)
-                0x0000000000000118                __ctors_start = .
+                0x0000000000000124                __ctors_start = .
  *(.ctors)
-                0x0000000000000118                __ctors_end = .
-                0x0000000000000118                __dtors_start = .
+                0x0000000000000124                __ctors_end = .
+                0x0000000000000124                __dtors_start = .
  *(.dtors)
-                0x0000000000000118                __dtors_end = .
+                0x0000000000000124                __dtors_end = .
  SORT_BY_NAME(*)(.ctors)
  SORT_BY_NAME(*)(.dtors)
  *(.init0)
- .init0         0x0000000000000118        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
-                0x0000000000000118                __init
+ .init0         0x0000000000000124        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x0000000000000124                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000000000000118       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .init2         0x0000000000000124       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000000000000128       0x1a c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
-                0x0000000000000128                __do_copy_data
- .init4         0x0000000000000142       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
-                0x0000000000000142                __do_clear_bss
+ .init4         0x0000000000000134       0x1a c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000134                __do_copy_data
+ .init4         0x000000000000014e       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000014e                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -213,208 +213,214 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000000000000152        0x8 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .init9         0x000000000000015e        0x8 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
  *(.init9)
  *(.text)
- .text          0x000000000000015a        0x4 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
-                0x000000000000015a                __vector_38
-                0x000000000000015a                __vector_22
-                0x000000000000015a                __vector_28
-                0x000000000000015a                __vector_1
-                0x000000000000015a                __vector_32
-                0x000000000000015a                __vector_34
-                0x000000000000015a                __vector_24
-                0x000000000000015a                __vector_12
-                0x000000000000015a                __vector_55
-                0x000000000000015a                __vector_46
-                0x000000000000015a                __bad_interrupt
-                0x000000000000015a                __vector_6
-                0x000000000000015a                __vector_31
-                0x000000000000015a                __vector_35
-                0x000000000000015a                __vector_39
-                0x000000000000015a                __vector_3
-                0x000000000000015a                __vector_23
-                0x000000000000015a                __vector_30
-                0x000000000000015a                __vector_45
-                0x000000000000015a                __vector_25
-                0x000000000000015a                __vector_11
-                0x000000000000015a                __vector_54
-                0x000000000000015a                __vector_13
-                0x000000000000015a                __vector_17
-                0x000000000000015a                __vector_19
-                0x000000000000015a                __vector_56
-                0x000000000000015a                __vector_7
-                0x000000000000015a                __vector_49
-                0x000000000000015a                __vector_41
-                0x000000000000015a                __vector_43
-                0x000000000000015a                __vector_27
-                0x000000000000015a                __vector_5
-                0x000000000000015a                __vector_33
-                0x000000000000015a                __vector_47
-                0x000000000000015a                __vector_52
-                0x000000000000015a                __vector_37
-                0x000000000000015a                __vector_4
-                0x000000000000015a                __vector_44
-                0x000000000000015a                __vector_51
-                0x000000000000015a                __vector_9
-                0x000000000000015a                __vector_2
-                0x000000000000015a                __vector_21
-                0x000000000000015a                __vector_15
-                0x000000000000015a                __vector_36
-                0x000000000000015a                __vector_29
-                0x000000000000015a                __vector_40
-                0x000000000000015a                __vector_8
-                0x000000000000015a                __vector_26
-                0x000000000000015a                __vector_48
-                0x000000000000015a                __vector_14
-                0x000000000000015a                __vector_53
-                0x000000000000015a                __vector_10
-                0x000000000000015a                __vector_50
-                0x000000000000015a                __vector_16
-                0x000000000000015a                __vector_18
-                0x000000000000015a                __vector_20
-                0x000000000000015a                __vector_42
- .text          0x000000000000015e        0x0 ./myUART/myUART.o
- .text          0x000000000000015e        0x0 ./mySmartSensor/mySmartSensor.o
- .text          0x000000000000015e        0x0 ./mySPI/mySPI.o
- .text          0x000000000000015e        0x0 ./myADC/myADC.o
- .text          0x000000000000015e        0x0 ./main.o
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(fputc.o)
- .text          0x000000000000015e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
-                0x000000000000015e                . = ALIGN (0x2)
+ .text          0x0000000000000166        0x4 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x0000000000000166                __vector_38
+                0x0000000000000166                __vector_22
+                0x0000000000000166                __vector_28
+                0x0000000000000166                __vector_1
+                0x0000000000000166                __vector_32
+                0x0000000000000166                __vector_34
+                0x0000000000000166                __vector_24
+                0x0000000000000166                __vector_12
+                0x0000000000000166                __vector_55
+                0x0000000000000166                __vector_46
+                0x0000000000000166                __bad_interrupt
+                0x0000000000000166                __vector_6
+                0x0000000000000166                __vector_31
+                0x0000000000000166                __vector_35
+                0x0000000000000166                __vector_39
+                0x0000000000000166                __vector_3
+                0x0000000000000166                __vector_23
+                0x0000000000000166                __vector_30
+                0x0000000000000166                __vector_45
+                0x0000000000000166                __vector_25
+                0x0000000000000166                __vector_11
+                0x0000000000000166                __vector_54
+                0x0000000000000166                __vector_13
+                0x0000000000000166                __vector_17
+                0x0000000000000166                __vector_19
+                0x0000000000000166                __vector_56
+                0x0000000000000166                __vector_7
+                0x0000000000000166                __vector_49
+                0x0000000000000166                __vector_41
+                0x0000000000000166                __vector_43
+                0x0000000000000166                __vector_27
+                0x0000000000000166                __vector_5
+                0x0000000000000166                __vector_33
+                0x0000000000000166                __vector_47
+                0x0000000000000166                __vector_52
+                0x0000000000000166                __vector_37
+                0x0000000000000166                __vector_4
+                0x0000000000000166                __vector_44
+                0x0000000000000166                __vector_51
+                0x0000000000000166                __vector_9
+                0x0000000000000166                __vector_2
+                0x0000000000000166                __vector_21
+                0x0000000000000166                __vector_15
+                0x0000000000000166                __vector_36
+                0x0000000000000166                __vector_29
+                0x0000000000000166                __vector_40
+                0x0000000000000166                __vector_8
+                0x0000000000000166                __vector_26
+                0x0000000000000166                __vector_48
+                0x0000000000000166                __vector_14
+                0x0000000000000166                __vector_53
+                0x0000000000000166                __vector_10
+                0x0000000000000166                __vector_50
+                0x0000000000000166                __vector_16
+                0x0000000000000166                __vector_18
+                0x0000000000000166                __vector_20
+                0x0000000000000166                __vector_42
+ .text          0x000000000000016a        0x0 ./myUART/myUART.o
+ .text          0x000000000000016a        0x0 ./mySmartSensor/mySmartSensor.o
+ .text          0x000000000000016a        0x0 ./mySPI/mySPI.o
+ .text          0x000000000000016a        0x0 ./myADC/myADC.o
+ .text          0x000000000000016a        0x0 ./main.o
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .text          0x000000000000016a        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                0x000000000000016a                . = ALIGN (0x2)
  *(.text.*)
  .text.USART_Init
-                0x000000000000015e       0x18 ./myUART/myUART.o
-                0x000000000000015e                USART_Init
+                0x000000000000016a       0x18 ./myUART/myUART.o
+                0x000000000000016a                USART_Init
  .text.USART_GetChar
-                0x0000000000000176        0xe ./myUART/myUART.o
-                0x0000000000000176                USART_GetChar
+                0x0000000000000182        0xe ./myUART/myUART.o
+                0x0000000000000182                USART_GetChar
  .text.USART_PutChar
-                0x0000000000000184        0xe ./myUART/myUART.o
-                0x0000000000000184                USART_PutChar
+                0x0000000000000190        0xe ./myUART/myUART.o
+                0x0000000000000190                USART_PutChar
  .text.USART_PutStr
-                0x0000000000000192       0x18 ./myUART/myUART.o
-                0x0000000000000192                USART_PutStr
+                0x000000000000019e       0x18 ./myUART/myUART.o
+                0x000000000000019e                USART_PutStr
  .text.USART_PutNum
-                0x00000000000001aa       0x5a ./myUART/myUART.o
-                0x00000000000001aa                USART_PutNum
+                0x00000000000001b6       0x5a ./myUART/myUART.o
+                0x00000000000001b6                USART_PutNum
  .text.calibrate_S0
-                0x0000000000000204       0x9c ./mySmartSensor/mySmartSensor.o
-                0x0000000000000204                calibrate_S0
+                0x0000000000000210       0x9c ./mySmartSensor/mySmartSensor.o
+                0x0000000000000210                calibrate_S0
  .text.calibrate_S1
-                0x00000000000002a0       0x9c ./mySmartSensor/mySmartSensor.o
-                0x00000000000002a0                calibrate_S1
+                0x00000000000002ac       0x9c ./mySmartSensor/mySmartSensor.o
+                0x00000000000002ac                calibrate_S1
  .text.calibrate_S2
-                0x000000000000033c       0x9c ./mySmartSensor/mySmartSensor.o
-                0x000000000000033c                calibrate_S2
+                0x0000000000000348       0x9c ./mySmartSensor/mySmartSensor.o
+                0x0000000000000348                calibrate_S2
+ .text.digitalRaw
+                0x00000000000003e4       0x90 ./mySmartSensor/mySmartSensor.o
+                0x00000000000003e4                digitalRaw
+ .text.dicision
+                0x0000000000000474       0x24 ./mySmartSensor/mySmartSensor.o
+                0x0000000000000474                dicision
  .text.SmartSensor
-                0x00000000000003d8      0x13e ./mySmartSensor/mySmartSensor.o
-                0x00000000000003d8                SmartSensor
+                0x0000000000000498      0x17c ./mySmartSensor/mySmartSensor.o
+                0x0000000000000498                SmartSensor
  .text.SPI_SlaveInit
-                0x0000000000000516        0xa ./mySPI/mySPI.o
-                0x0000000000000516                SPI_SlaveInit
+                0x0000000000000614        0xa ./mySPI/mySPI.o
+                0x0000000000000614                SPI_SlaveInit
  .text.SPI_SlaveReceive
-                0x0000000000000520        0xc ./mySPI/mySPI.o
-                0x0000000000000520                SPI_SlaveReceive
+                0x000000000000061e        0xc ./mySPI/mySPI.o
+                0x000000000000061e                SPI_SlaveReceive
  .text.SPI_SlavePrint
-                0x000000000000052c       0x18 ./mySPI/mySPI.o
-                0x000000000000052c                SPI_SlavePrint
+                0x000000000000062a       0x18 ./mySPI/mySPI.o
+                0x000000000000062a                SPI_SlavePrint
  .text.SPI_SlavePrintNum
-                0x0000000000000544       0x60 ./mySPI/mySPI.o
-                0x0000000000000544                SPI_SlavePrintNum
+                0x0000000000000642       0x60 ./mySPI/mySPI.o
+                0x0000000000000642                SPI_SlavePrintNum
  .text.myADC_init
-                0x00000000000005a4       0x1c ./myADC/myADC.o
-                0x00000000000005a4                myADC_init
+                0x00000000000006a2       0x1c ./myADC/myADC.o
+                0x00000000000006a2                myADC_init
  .text.myADC_read
-                0x00000000000005c0       0x58 ./myADC/myADC.o
-                0x00000000000005c0                myADC_read
+                0x00000000000006be       0x58 ./myADC/myADC.o
+                0x00000000000006be                myADC_read
  .text.startup.main
-                0x0000000000000618       0x16 ./main.o
-                0x0000000000000618                main
+                0x0000000000000716       0x16 ./main.o
+                0x0000000000000716                main
  .text.libgcc.mul
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
- .text.libgcc   0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+ .text.libgcc   0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.div
-                0x000000000000062e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
- .text.libgcc   0x000000000000062e       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
-                0x000000000000062e                __tablejump2__
+                0x000000000000072c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+ .text.libgcc   0x000000000000072c       0x10 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000072c                __tablejump2__
  .text.libgcc.prologue
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.builtins
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.fmul
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.fixed
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.mul
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
- .text.libgcc   0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
- .text.libgcc   0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x000000000000063e        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000073c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x000000000000063e       0x60 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
-                0x000000000000063e                sprintf
+                0x000000000000073c       0x60 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+                0x000000000000073c                sprintf
  .text.avr-libc
-                0x000000000000069e      0x3e6 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
-                0x000000000000069e                vfprintf
+                0x000000000000079c      0x3e6 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                0x000000000000079c                vfprintf
  .text.avr-libc
-                0x0000000000000a84       0x16 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
-                0x0000000000000a84                strnlen_P
+                0x0000000000000b82       0x16 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                0x0000000000000b82                strnlen_P
  .text.avr-libc
-                0x0000000000000a9a       0x16 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
-                0x0000000000000a9a                strnlen
+                0x0000000000000b98       0x16 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                0x0000000000000b98                strnlen
  .text.avr-libc
-                0x0000000000000ab0       0x60 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(fputc.o)
-                0x0000000000000ab0                fputc
+                0x0000000000000bae       0x60 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+                0x0000000000000bae                fputc
  .text.avr-libc
-                0x0000000000000b10       0xbc c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
-                0x0000000000000b10                __ultoa_invert
-                0x0000000000000bcc                . = ALIGN (0x2)
+                0x0000000000000c0e       0xbc c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                0x0000000000000c0e                __ultoa_invert
+                0x0000000000000cca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000bcc        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
-                0x0000000000000bcc                _exit
-                0x0000000000000bcc                exit
+ .fini9         0x0000000000000cca        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000cca                _exit
+                0x0000000000000cca                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -433,19 +439,19 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000bcc        0x4 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x0000000000000cca        0x4 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
  *(.hightext)
  *(.hightext*)
  *(.progmemx.*)
-                0x0000000000000bd0                . = ALIGN (0x2)
+                0x0000000000000cce                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  .jumptables.gcc.SmartSensor
-                0x0000000000000bd0       0x1a ./mySmartSensor/mySmartSensor.o
-                0x0000000000000bea                _etext = .
+                0x0000000000000cce       0x22 ./mySmartSensor/mySmartSensor.o
+                0x0000000000000cf0                _etext = .
 
-.data           0x0000000000800200        0xc load address 0x0000000000000bea
+.data           0x0000000000800200        0xc load address 0x0000000000000cf0
                 0x0000000000800200                PROVIDE (__data_start = .)
  *(.data)
  .data          0x0000000000800200        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
@@ -488,7 +494,7 @@ END GROUP
                 0x000000000080020c                _edata = .
                 0x000000000080020c                PROVIDE (__data_end = .)
 
-.bss            0x000000000080020c       0x28
+.bss            0x000000000080020c       0x2d
                 0x000000000080020c                PROVIDE (__bss_start = .)
  *(.bss)
  .bss           0x000000000080020c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6/crtatmega2560.o
@@ -508,71 +514,76 @@ END GROUP
  .bss           0x000000000080020c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(fputc.o)
  .bss           0x000000000080020c        0x0 c:/users/andi/eclipse/cpp-2018-12/eclipse/avr-gcc-8.3.0-x64-mingw/bin/../lib/gcc/avr/8.3.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
  *(.bss*)
- .bss.dark2     0x000000000080020c        0x2 ./mySmartSensor/mySmartSensor.o
-                0x000000000080020c                dark2
- .bss.dark1     0x000000000080020e        0x2 ./mySmartSensor/mySmartSensor.o
-                0x000000000080020e                dark1
- .bss.dark0     0x0000000000800210        0x2 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800210                dark0
- .bss.TF2       0x0000000000800212        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800212                TF2
- .bss.TL2       0x0000000000800213        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800213                TL2
- .bss.TH2       0x0000000000800214        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800214                TH2
- .bss.TF1       0x0000000000800215        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800215                TF1
- .bss.TL1       0x0000000000800216        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800216                TL1
- .bss.TH1       0x0000000000800217        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800217                TH1
- .bss.TF0       0x0000000000800218        0x1 ./mySmartSensor/mySmartSensor.o
+ .bss.dRaw      0x000000000080020c        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080020c                dRaw
+ .bss.resultDigital
+                0x000000000080020d        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080020d                resultDigital
+ .bss.dark2     0x000000000080020e        0x2 ./mySmartSensor/mySmartSensor.o
+                0x000000000080020e                dark2
+ .bss.dark1     0x0000000000800210        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800210                dark1
+ .bss.dark0     0x0000000000800212        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800212                dark0
+ .bss.TF2       0x0000000000800214        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800214                TF2
+ .bss.TF1       0x0000000000800216        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800216                TF1
+ .bss.TF0       0x0000000000800218        0x2 ./mySmartSensor/mySmartSensor.o
                 0x0000000000800218                TF0
- .bss.TL0       0x0000000000800219        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800219                TL0
- .bss.TH0       0x000000000080021a        0x1 ./mySmartSensor/mySmartSensor.o
-                0x000000000080021a                TH0
- .bss.SF2       0x000000000080021b        0x2 ./mySmartSensor/mySmartSensor.o
-                0x000000000080021b                SF2
- .bss.SF1       0x000000000080021d        0x2 ./mySmartSensor/mySmartSensor.o
-                0x000000000080021d                SF1
- .bss.SF0       0x000000000080021f        0x2 ./mySmartSensor/mySmartSensor.o
-                0x000000000080021f                SF0
- .bss.SL2       0x0000000000800221        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800221                SL2
- .bss.SH2       0x0000000000800222        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800222                SH2
- .bss.SL1       0x0000000000800223        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800223                SL1
- .bss.SH1       0x0000000000800224        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800224                SH1
- .bss.SL0       0x0000000000800225        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800225                SL0
- .bss.SH0       0x0000000000800226        0x1 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800226                SH0
+ .bss.TL2       0x000000000080021a        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021a                TL2
+ .bss.TH2       0x000000000080021b        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021b                TH2
+ .bss.TL1       0x000000000080021c        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021c                TL1
+ .bss.TH1       0x000000000080021d        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021d                TH1
+ .bss.TL0       0x000000000080021e        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021e                TL0
+ .bss.TH0       0x000000000080021f        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080021f                TH0
+ .bss.SF2       0x0000000000800220        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800220                SF2
+ .bss.SF1       0x0000000000800222        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800222                SF1
+ .bss.SF0       0x0000000000800224        0x2 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800224                SF0
+ .bss.SL2       0x0000000000800226        0x1 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800226                SL2
+ .bss.SH2       0x0000000000800227        0x1 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800227                SH2
+ .bss.SL1       0x0000000000800228        0x1 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800228                SL1
+ .bss.SH1       0x0000000000800229        0x1 ./mySmartSensor/mySmartSensor.o
+                0x0000000000800229                SH1
+ .bss.SL0       0x000000000080022a        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080022a                SL0
+ .bss.SH0       0x000000000080022b        0x1 ./mySmartSensor/mySmartSensor.o
+                0x000000000080022b                SH0
  *(COMMON)
- COMMON         0x0000000000800227        0x8 ./mySmartSensor/mySmartSensor.o
-                0x0000000000800227                tHigh
-                0x0000000000800228                Threshold2
-                0x000000000080022a                tLow
-                0x000000000080022b                Threshold0
-                0x000000000080022d                Threshold1
- COMMON         0x000000000080022f        0x2 ./myADC/myADC.o
-                0x000000000080022f                temp2
-                0x0000000000800230                temp1
- COMMON         0x0000000000800231        0x3 ./main.o
-                0x0000000000800231                buff
-                0x0000000000800232                high
-                0x0000000000800233                low
-                0x0000000000800234                PROVIDE (__bss_end = .)
-                0x0000000000000bea                __data_load_start = LOADADDR (.data)
-                0x0000000000000bf6                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x000000000080022c        0x8 ./mySmartSensor/mySmartSensor.o
+                0x000000000080022c                tHigh
+                0x000000000080022d                Threshold2
+                0x000000000080022f                tLow
+                0x0000000000800230                Threshold0
+                0x0000000000800232                Threshold1
+ COMMON         0x0000000000800234        0x2 ./myADC/myADC.o
+                0x0000000000800234                temp2
+                0x0000000000800235                temp1
+ COMMON         0x0000000000800236        0x3 ./main.o
+                0x0000000000800236                buff
+                0x0000000000800237                high
+                0x0000000000800238                low
+                0x0000000000800239                PROVIDE (__bss_end = .)
+                0x0000000000000cf0                __data_load_start = LOADADDR (.data)
+                0x0000000000000cfc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800234        0x0
+.noinit         0x0000000000800239        0x0
                 [!provide]                        PROVIDE (__noinit_start = .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end = .)
-                0x0000000000800234                _end = .
+                0x0000000000800239                _end = .
                 [!provide]                        PROVIDE (__heap_start = .)
 
 .eeprom         0x0000000000810000        0x0
