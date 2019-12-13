@@ -2,13 +2,22 @@
  * mySmartSensor.c
  *
  *  Created on: Dec 11, 2019
- *      Author: Andi
+ *      Author: rizky
  */
 
 #include "mySmartSensor.h"
 
+
 unsigned char Kirim='B';
 unsigned char Terima='0';
+
+uint16_t Sensor1[20];
+uint16_t Sensor2[20];
+uint16_t Sensor3[20];
+uint16_t Sensor1All;
+uint16_t Sensor2All;
+uint16_t Sensor3All;
+int i=0;
 
 
 /* Value Sensor Variable	*/
@@ -22,6 +31,7 @@ uint8_t TH0=0, TL0=0;
 uint8_t TH1=0, TL1=0;
 uint8_t TH2=0, TL2=0;
 uint16_t TF0=0, TF1=0, TF2=0;
+uint8_t TH0A=0;uint8_t TH1A=0;uint8_t TH2A=0;
 
 /* variable Calibrate 2 */
 uint16_t dark0=0, dark1=0, dark2=0;
@@ -30,6 +40,7 @@ uint16_t Threshold0, Threshold1, Threshold2;
 
 /* variable digitalRaw	*/
 uint8_t resultDigital=0;
+uint8_t resultDigital1=0;
 uint8_t dRaw=0;
 
 void SmartSensor(void){
@@ -134,6 +145,10 @@ void SmartSensor(void){
 		dRaw = digitalRaw(TH2, TH1, TH0);
 		Kirim = dicision(dRaw);
 	}break;
+
+	case 0x11:{
+			Kirim = AutoCalibrate(TH2A,TH1A,TH0A);
+		}break;
 	}
 }
 
@@ -203,19 +218,19 @@ uint8_t digitalRaw(uint16_t Thrs2, uint16_t Thrs1, uint16_t Thrs0){
 	myADC_read(2, 0, 0, &SF2);
 
 	/* Compare between SF0 and Thrs0	*/
-	if(SF0 > 500)
+	if(SF0 > Thrs0)
 		resultDigital |= (1<<0);
 	else
 		resultDigital &= ~(1<<0);
 
 	/* Compare between SF0 and Thrs0	*/
-	if(SF1 > 500)
+	if(SF1 > Thrs1)
 		resultDigital |= (1<<1);
 	else
 		resultDigital &= ~(1<<1);
 
 	/* Compare between SF0 and Thrs0	*/
-	if(SF2 > 500)
+	if(SF2 > Thrs2)
 		resultDigital |= (1<<2);
 	else
 		resultDigital &= ~(1<<2);
@@ -236,4 +251,41 @@ uint8_t dicision(uint8_t in_digitalRaw){
 		result='T';
 
 	return result;
+}
+
+uint8_t AutoCalibrate(uint16_t Thrs2, uint16_t Thrs1, uint16_t Thrs0){
+	/* read all sensor	*/
+	do {
+		myADC_read(0, 0, 0, &SF0);
+		myADC_read(1, 0, 0, &SF1);
+		myADC_read(2, 0, 0, &SF2);
+
+		Sensor1[i]= SF0;
+		Sensor2[i]= SF1;
+		Sensor3[i]=	SF2;
+	} while(i<=20);
+
+	Sensor1All = (Sensor1All+Sensor1[i])/20;
+	Sensor2All = (Sensor2All+Sensor1[i])/20;
+	Sensor3All = (Sensor3All+Sensor1[i])/20;
+
+	/* Compare between Sensor1 and Thrs0	*/
+	if(SF0 > Sensor1All)
+		resultDigital1 |= (1<<0);
+	else
+		resultDigital1 &= ~(1<<0);
+
+	/* Compare between Sensor2 and Thrs1	*/
+	if(SF1 > Sensor2All)
+		resultDigital1 |= (1<<1);
+	else
+		resultDigital1 &= ~(1<<1);
+
+	/* Compare between Sensor3 and Thrs2	*/
+	if(SF2 > Sensor3All)
+		resultDigital1 |= (1<<2);
+	else
+		resultDigital1 &= ~(1<<2);
+
+	return resultDigital1;
 }

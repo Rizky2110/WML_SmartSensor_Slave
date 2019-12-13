@@ -9,6 +9,7 @@
 #define MYADC_MYADC_H_
 
 #include <avr/io.h>
+#include "myADC.h"
 
 uint8_t tLow, tHigh;
 void myADC_init(void);

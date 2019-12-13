@@ -34,60 +34,61 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-SPI_Slave_Sensor_MEGA_V3.lss \
+SLAVE_SMART_Sensor.lss \
 
 FLASH_IMAGE += \
-SPI_Slave_Sensor_MEGA_V3.hex \
+SLAVE_SMART_Sensor.hex \
 
 EEPROM_IMAGE += \
-SPI_Slave_Sensor_MEGA_V3.eep \
+SLAVE_SMART_Sensor.eep \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: SPI_Slave_Sensor_MEGA_V3.elf secondary-outputs
+all: SLAVE_SMART_Sensor.elf secondary-outputs
 
 # Tool invocations
-SPI_Slave_Sensor_MEGA_V3.elf: $(OBJS) $(USER_OBJS)
+SLAVE_SMART_Sensor.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,SPI_Slave_Sensor_MEGA_V3.map -mmcu=atmega2560 -o "SPI_Slave_Sensor_MEGA_V3.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,SLAVE_SMART_Sensor.map -mmcu=atmega2560 -o "SLAVE_SMART_Sensor.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-SPI_Slave_Sensor_MEGA_V3.lss: SPI_Slave_Sensor_MEGA_V3.elf
+SLAVE_SMART_Sensor.lss: SLAVE_SMART_Sensor.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S SPI_Slave_Sensor_MEGA_V3.elf  >"SPI_Slave_Sensor_MEGA_V3.lss"
+	-avr-objdump -h -S SLAVE_SMART_Sensor.elf  >"SLAVE_SMART_Sensor.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SPI_Slave_Sensor_MEGA_V3.hex: SPI_Slave_Sensor_MEGA_V3.elf
+SLAVE_SMART_Sensor.hex: SLAVE_SMART_Sensor.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_Slave_Sensor_MEGA_V3.elf  "SPI_Slave_Sensor_MEGA_V3.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SLAVE_SMART_Sensor.elf  "SLAVE_SMART_Sensor.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SPI_Slave_Sensor_MEGA_V3.eep: SPI_Slave_Sensor_MEGA_V3.elf
+SLAVE_SMART_Sensor.eep: SLAVE_SMART_Sensor.elf
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SPI_Slave_Sensor_MEGA_V3.elf  "SPI_Slave_Sensor_MEGA_V3.eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SLAVE_SMART_Sensor.elf  "SLAVE_SMART_Sensor.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: SPI_Slave_Sensor_MEGA_V3.elf
+sizedummy: SLAVE_SMART_Sensor.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=berkeley -t SPI_Slave_Sensor_MEGA_V3.elf
+	-avr-size --format=avr --mcu=atmega2560 SLAVE_SMART_Sensor.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) SPI_Slave_Sensor_MEGA_V3.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) SLAVE_SMART_Sensor.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
+.SECONDARY:
 
 -include ../makefile.targets
